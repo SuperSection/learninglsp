@@ -18,7 +18,8 @@ func TestEncode(t *testing.T) {
 
 func TestDecode(t *testing.T) {
 	incomingMsg := "Content-Length: 15\r\n\r\n{\"Method\":\"hi\"}"
-	method, contentLength, err := DecodeMessage([]byte(incomingMsg))
+	method, content, err := DecodeMessage([]byte(incomingMsg))
+	contentLength := len(content)
 	if err != nil {
 		t.Fatal(err)
 	}
